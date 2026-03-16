@@ -1,0 +1,458 @@
+@import "tailwindcss";
+
+/* ─── Custom Variant: dark mode via class ─── */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ─── Theme Tokens ─── */
+@theme inline {
+    /* Forest green-teal palette — warmer hue for celestial depth */
+    --color-forest-950: oklch(0.12 0.03 155);
+    --color-forest-900: oklch(0.17 0.035 155);
+    --color-forest-800: oklch(0.24 0.04 155);
+    --color-forest-700: oklch(0.32 0.05 155);
+
+    /* Gold accent — richer, higher chroma */
+    --color-gold-300: oklch(0.88 0.17 80);
+    --color-gold-400: oklch(0.78 0.16 75);
+    --color-gold-500: oklch(0.7 0.18 78);
+
+    /* Lotus pink accent — slightly more saturated */
+    --color-lotus-300: oklch(0.82 0.16 350);
+    --color-lotus-400: oklch(0.72 0.18 350);
+    --color-lotus-500: oklch(0.64 0.16 350);
+
+    /* Jade green accent — more vivid */
+    --color-jade-400: oklch(0.72 0.18 155);
+    --color-jade-500: oklch(0.62 0.17 155);
+    --color-jade-600: oklch(0.5 0.14 155);
+
+    /* Amber accent — deep warm gold */
+    --color-amber-600: oklch(0.55 0.18 65);
+    --color-amber-700: oklch(0.45 0.16 60);
+
+    /* Sienna brown accent */
+    --color-sienna-600: oklch(0.48 0.12 55);
+
+    /* Cream palette (for frame interiors) — warmer ivory */
+    --color-cream-50: oklch(0.96 0.01 90);
+    --color-cream-100: oklch(0.94 0.025 78);
+    --color-cream-200: oklch(0.9 0.02 80);
+
+    /* Surface layers */
+    --color-surface: oklch(0.18 0.03 155);
+    --color-surface-elevated: oklch(0.22 0.03 155);
+    --color-surface-card: oklch(0.2 0.035 155);
+
+    /* Borders — warmer */
+    --color-border-subtle: oklch(0.28 0.04 155);
+
+    /* Text hierarchy — warmer whites */
+    --color-text-primary: oklch(0.95 0.015 80);
+    --color-text-secondary: oklch(0.78 0.015 80);
+    --color-text-muted: oklch(0.55 0.01 90);
+
+    /* Fonts — Cinzel for headings, DM Sans for body */
+    --font-sans: var(--font-body);
+    --font-heading: var(--font-heading);
+    --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+
+    /* Custom keyframes */
+    --animate-float-slow: float-slow 8s ease-in-out infinite;
+    --animate-float-medium: float-medium 6s ease-in-out infinite;
+    --animate-float-fast: float-fast 4s ease-in-out infinite;
+    --animate-glow-pulse: glow-pulse 3s ease-in-out infinite;
+    --animate-lantern-sway: lantern-sway 5s ease-in-out infinite;
+    --animate-fade-up: fade-up 0.6s ease-out both;
+    --animate-lotus-float: lotus-float 7s ease-in-out infinite;
+    --animate-lotus-drift: lotus-drift 10s ease-in-out infinite;
+    --animate-lotus-float-glow: lotus-float 7s ease-in-out infinite, glow-pulse 4s ease-in-out infinite;
+    --animate-lotus-drift-glow: lotus-drift 10s ease-in-out infinite, glow-pulse 5s ease-in-out infinite;
+    --animate-float-up-down: float-up-down 6s ease-in-out infinite;
+    --animate-float-down-up: float-down-up 6s ease-in-out infinite;
+    --animate-float-left-right: float-left-right 7s ease-in-out infinite;
+    --animate-float-right-left: float-right-left 7s ease-in-out infinite;
+    --animate-float-diagonal: float-diagonal 8s ease-in-out infinite;
+    --animate-skeleton-pulse: skeleton-pulse 2s ease-in-out infinite;
+    --animate-celestial-glow: celestial-glow 6s ease-in-out infinite;
+    --animate-gold-shimmer: gold-shimmer 8s linear infinite;
+    --animate-marquee-left: marquee-left 40s linear infinite;
+    --animate-marquee-right: marquee-right 40s linear infinite;
+}
+
+/* ─── Keyframes ─── */
+@keyframes float-slow {
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(2deg);
+    }
+}
+
+@keyframes float-medium {
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-14px) rotate(-1.5deg);
+    }
+}
+
+@keyframes float-fast {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes glow-pulse {
+    0%,
+    100% {
+        opacity: 0.6;
+        filter: brightness(1);
+    }
+    50% {
+        opacity: 1;
+        filter: brightness(1.3);
+    }
+}
+
+@keyframes lantern-sway {
+    0%,
+    100% {
+        transform: rotate(-3deg) translateY(0);
+    }
+    25% {
+        transform: rotate(2deg) translateY(-8px);
+    }
+    50% {
+        transform: rotate(-1deg) translateY(-4px);
+    }
+    75% {
+        transform: rotate(3deg) translateY(-10px);
+    }
+}
+
+@keyframes fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes lotus-float {
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    33% {
+        transform: translateY(-8px) rotate(3deg);
+    }
+    66% {
+        transform: translateY(-4px) rotate(-2deg);
+    }
+}
+
+@keyframes lotus-drift {
+    0%,
+    100% {
+        transform: translateX(0) translateY(0) rotate(0deg);
+    }
+    25% {
+        transform: translateX(6px) translateY(-4px) rotate(2deg);
+    }
+    50% {
+        transform: translateX(-4px) translateY(-8px) rotate(-1deg);
+    }
+    75% {
+        transform: translateX(3px) translateY(-3px) rotate(3deg);
+    }
+}
+
+@keyframes float-up-down {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes float-down-up {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(10px);
+    }
+}
+
+@keyframes float-left-right {
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(10px);
+    }
+}
+
+@keyframes float-right-left {
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(-10px);
+    }
+}
+
+@keyframes float-diagonal {
+    0%,
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    25% {
+        transform: translate(6px, -6px) rotate(1deg);
+    }
+    50% {
+        transform: translate(-4px, -10px) rotate(-1deg);
+    }
+    75% {
+        transform: translate(-6px, -4px) rotate(1.5deg);
+    }
+}
+
+@keyframes skeleton-pulse {
+    0%,
+    100% {
+        opacity: 0.4;
+    }
+    50% {
+        opacity: 0.8;
+    }
+}
+
+@keyframes celestial-glow {
+    0%,
+    100% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(1.05);
+    }
+}
+
+/* ─── Glow border button ─── */
+.glow-btn {
+    position: relative;
+    border-radius: 0.75rem;
+    border: 1.5px solid oklch(0.78 0.16 75 / 0.2);
+    box-shadow: 0 0 0 oklch(0.78 0.16 75 / 0);
+    transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+.glow-btn:hover {
+    border-color: oklch(0.88 0.17 80 / 0.8);
+    box-shadow:
+        0 0 16px oklch(0.88 0.17 80 / 0.4),
+        0 0 40px oklch(0.78 0.16 75 / 0.2),
+        0 0 80px oklch(0.78 0.16 75 / 0.08);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .glow-btn { transition: none; }
+}
+
+@keyframes gold-shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+@keyframes marquee-left {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes marquee-right {
+    0% {
+        transform: translateX(-50%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* ─── Marquee utility classes ─── */
+.marquee-left {
+    animation: marquee-left 40s linear infinite;
+}
+
+.marquee-right {
+    animation: marquee-right 40s linear infinite;
+}
+
+/* ─── Cloud clip-path shapes ─── */
+.cloud-shape-left {
+    clip-path: polygon(
+        0% 0%,
+        100% 0%,
+        100% 10%,
+        95% 20%,
+        100% 35%,
+        97% 50%,
+        100% 65%,
+        95% 78%,
+        100% 90%,
+        100% 100%,
+        0% 100%
+    );
+}
+
+.cloud-shape-right {
+    clip-path: polygon(
+        0% 0%,
+        100% 0%,
+        100% 100%,
+        0% 100%,
+        0% 90%,
+        5% 78%,
+        0% 65%,
+        3% 50%,
+        0% 35%,
+        5% 20%,
+        0% 10%
+    );
+}
+
+/* ─── Section heading utility ─── */
+.section-heading {
+    font-family: var(--font-heading), serif;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* ─── Celestial utility classes ─── */
+.text-celestial-gold {
+    background: linear-gradient(
+        135deg,
+        oklch(0.88 0.17 80),
+        oklch(0.7 0.18 78),
+        oklch(0.88 0.17 80)
+    );
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gold-shimmer 8s linear infinite;
+}
+
+.shimmer-gold {
+    background: linear-gradient(
+        90deg,
+        transparent,
+        oklch(0.78 0.16 75 / 0.5),
+        transparent
+    );
+    background-size: 200% 100%;
+    animation: gold-shimmer 8s linear infinite;
+}
+
+/* ─── Base Styles ─── */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    color-scheme: dark;
+}
+
+body {
+    background-color: var(--color-forest-950);
+    color: var(--color-text-primary);
+    font-family: var(--font-sans), serif;
+    overflow-x: clip;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+    background-color: var(--color-gold-400);
+    color: var(--color-forest-950);
+}
+
+/* ─── Reduced Motion ─── */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* ─── Register Button with Brush Stroke ─── */
+.btn-register {
+    position: relative;
+    background: transparent;
+    transition: transform 0.2s ease;
+}
+
+.btn-register .brush-bg {
+    position: absolute;
+    /* Bleed past button edges for natural brush feel */
+    inset: -30% -10%;
+    background-image: url("/assets/img/ui/brush-stroke.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    filter: brightness(0);
+    opacity: 0;
+    /* Start fully clipped from left (right-to-left reveal) */
+    clip-path: inset(0 0 0 100%);
+    transition:
+        clip-path 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 0.3s ease;
+}
+
+.btn-register:hover .brush-bg,
+.btn-register:focus-visible .brush-bg {
+    opacity: 0.85;
+    clip-path: inset(0 0 0 0);
+}
+
+.btn-register:active {
+    transform: scale(0.98);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .btn-register .brush-bg {
+        transition: none;
+        clip-path: inset(0 0 0 0);
+        opacity: 0.7;
+    }
+}
+
+/* ─── Scroll Anchors ─── */
+[id] {
+    scroll-margin-top: 5rem;
+}
