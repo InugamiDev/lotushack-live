@@ -176,7 +176,7 @@ export default function SchedulePage() {
           className="relative z-10 flex items-center justify-between px-4 py-4 sm:px-8"
         >
           <Link
-            href="/"
+            href="https://lotushack.org"
             className="flex items-center gap-3 transition-opacity duration-200 hover:opacity-80"
           >
             <Image
@@ -191,7 +191,7 @@ export default function SchedulePage() {
             </span>
           </Link>
           <Link
-            href="/"
+            href="https://lotushack.org"
             className="inline-flex items-center gap-2 rounded-lg border border-gold-400/20 px-4 py-2.5 font-[family-name:var(--font-heading)] text-sm font-medium tracking-wide text-cream-100/60 transition-all duration-200 hover:border-gold-400/50 hover:text-gold-400 hover:shadow-[0_0_12px_oklch(0.78_0.16_75/0.1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-400 focus-visible:ring-offset-2 focus-visible:ring-offset-forest-950"
           >
             <svg
@@ -607,7 +607,7 @@ export default function SchedulePage() {
               Join Discord
             </a>
             <Link
-              href="/"
+              href="https://lotushack.org"
               className="inline-flex min-h-[2.625rem] items-center justify-center gap-2 rounded-lg border border-gold-400/20 px-6 py-3.5 font-[family-name:var(--font-heading)] text-sm font-medium tracking-wide text-cream-100/60 transition-all duration-200 hover:border-gold-400/50 hover:text-gold-400 hover:shadow-[0_0_12px_oklch(0.78_0.16_75/0.1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-400 focus-visible:ring-offset-2 focus-visible:ring-offset-forest-950"
             >
               <svg
