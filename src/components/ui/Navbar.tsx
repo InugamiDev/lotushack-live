@@ -17,6 +17,7 @@ const NAV_ITEMS: NavItem[] = [
   { label: "Schedule", href: "/" },
   { label: "FAQ", href: "https://www.lotushack.org/#faq", external: true },
   { label: "Resources", href: "/resources" },
+  { label: "Guide", href: "/guide" },
   { label: "Devpost", href: "https://lotushack.org", external: true },
   { label: "Perks", href: "/perks" },
 ];
