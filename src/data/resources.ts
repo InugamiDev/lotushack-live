@@ -6,8 +6,13 @@ export type Resource = {
   docsUrl: string;
   description: string;
   tier: ResourceTier;
-  /** Category for grouping */
   category: "ai" | "cloud" | "tools" | "data" | "media";
+  /** GitHub repo link */
+  repoUrl: string;
+  /** org/repo format */
+  repoName: string;
+  /** Approximate star count label */
+  stars: string;
 };
 
 export const resources: Resource[] = [
@@ -20,6 +25,9 @@ export const resources: Resource[] = [
       "API for GPT models — text generation, vision, embeddings, and function calling in a few lines of code",
     tier: "intermediate",
     category: "ai",
+    repoUrl: "https://github.com/openai/openai-cookbook",
+    repoName: "openai/openai-cookbook",
+    stars: "70k+",
   },
   {
     name: "OpenRouter",
@@ -29,6 +37,9 @@ export const resources: Resource[] = [
       "Unified API gateway to 500+ LLMs from 60+ providers through a single OpenAI-compatible endpoint",
     tier: "intermediate",
     category: "ai",
+    repoUrl: "https://github.com/OpenRouterTeam/openrouter-examples",
+    repoName: "OpenRouterTeam/openrouter-examples",
+    stars: "300+",
   },
   {
     name: "Qwen",
@@ -38,6 +49,9 @@ export const resources: Resource[] = [
       "Open-weight language models by Alibaba Cloud — run locally or via API for multilingual AI tasks",
     tier: "professional",
     category: "ai",
+    repoUrl: "https://github.com/QwenLM/Qwen3",
+    repoName: "QwenLM/Qwen3",
+    stars: "15k+",
   },
   {
     name: "Dify",
@@ -47,6 +61,9 @@ export const resources: Resource[] = [
       "Open-source platform for building AI apps with visual workflow builder, RAG pipelines, and agent orchestration",
     tier: "beginner",
     category: "ai",
+    repoUrl: "https://github.com/langgenius/dify",
+    repoName: "langgenius/dify",
+    stars: "123k+",
   },
   {
     name: "Manus",
@@ -56,6 +73,9 @@ export const resources: Resource[] = [
       "General-purpose AI agent that can browse, code, and complete complex tasks autonomously",
     tier: "beginner",
     category: "ai",
+    repoUrl: "https://github.com/FoundationAgents/OpenManus",
+    repoName: "FoundationAgents/OpenManus",
+    stars: "55k+",
   },
   {
     name: "Exa",
@@ -65,6 +85,9 @@ export const resources: Resource[] = [
       "AI-native search API using embeddings to find and retrieve web content with semantic understanding",
     tier: "intermediate",
     category: "ai",
+    repoUrl: "https://github.com/exa-labs/exa-js",
+    repoName: "exa-labs/exa-js",
+    stars: "120+",
   },
 
   // ── Cloud & Infrastructure ──
@@ -76,6 +99,9 @@ export const resources: Resource[] = [
       "Cloud infrastructure with compute, storage, databases, and AI/ML services (Bedrock, Lambda, S3) plus free tier",
     tier: "professional",
     category: "cloud",
+    repoUrl: "https://github.com/aws-samples/serverless-patterns",
+    repoName: "aws-samples/serverless-patterns",
+    stars: "1.8k+",
   },
   {
     name: "Redis",
@@ -85,6 +111,9 @@ export const resources: Resource[] = [
       "In-memory data store and cloud database for caching, real-time analytics, and sub-millisecond data access",
     tier: "intermediate",
     category: "cloud",
+    repoUrl: "https://github.com/redis/redis",
+    repoName: "redis/redis",
+    stars: "67k+",
   },
   {
     name: "Replit",
@@ -94,6 +123,9 @@ export const resources: Resource[] = [
       "Browser-based IDE with AI coding agent, instant hosting, multiplayer collaboration, and one-click deploy",
     tier: "beginner",
     category: "cloud",
+    repoUrl: "https://github.com/replit/kaboom",
+    repoName: "replit/kaboom",
+    stars: "2.7k+",
   },
 
   // ── Developer Tools ──
@@ -105,6 +137,9 @@ export const resources: Resource[] = [
       "Free AI-powered code editor by ByteDance with autonomous SOLO mode, inline completion, and Builder workflows",
     tier: "beginner",
     category: "tools",
+    repoUrl: "https://github.com/bytedance/trae-agent",
+    repoName: "bytedance/trae-agent",
+    stars: "11k+",
   },
   {
     name: "n8n",
@@ -114,6 +149,9 @@ export const resources: Resource[] = [
       "Open-source workflow automation with a visual builder, 400+ integrations, and built-in AI agent nodes",
     tier: "beginner",
     category: "tools",
+    repoUrl: "https://github.com/n8n-io/n8n",
+    repoName: "n8n-io/n8n",
+    stars: "100k+",
   },
   {
     name: "Lovable",
@@ -123,6 +161,9 @@ export const resources: Resource[] = [
       "AI app builder that generates full-stack React + Supabase apps from natural language with GitHub sync",
     tier: "beginner",
     category: "tools",
+    repoUrl: "https://github.com/AntonOsika/gpt-engineer",
+    repoName: "AntonOsika/gpt-engineer",
+    stars: "52k+",
   },
 
   // ── Data & Scraping ──
@@ -134,6 +175,9 @@ export const resources: Resource[] = [
       "Web scraping infrastructure with managed proxies, anti-bot bypass, browser API, and pre-scraped datasets",
     tier: "professional",
     category: "data",
+    repoUrl: "https://github.com/luminati-io/brightdata-mcp",
+    repoName: "luminati-io/brightdata-mcp",
+    stars: "1.6k+",
   },
 
   // ── Media & Communication ──
@@ -145,6 +189,9 @@ export const resources: Resource[] = [
       "Real-time voice, video calling, and interactive live streaming SDKs with ultra-low latency across platforms",
     tier: "intermediate",
     category: "media",
+    repoUrl: "https://github.com/AgoraIO/Basic-Video-Call",
+    repoName: "AgoraIO/Basic-Video-Call",
+    stars: "680+",
   },
   {
     name: "ElevenLabs",
@@ -154,6 +201,9 @@ export const resources: Resource[] = [
       "Voice AI API for text-to-speech, speech-to-text, voice cloning, and real-time audio generation",
     tier: "intermediate",
     category: "media",
+    repoUrl: "https://github.com/elevenlabs/elevenlabs-examples",
+    repoName: "elevenlabs/elevenlabs-examples",
+    stars: "570+",
   },
 ];
 
