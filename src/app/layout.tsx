@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Cinzel, DM_Sans } from "next/font/google";
+import { Navbar } from "@/components/ui/Navbar";
 import "./globals.css";
 
 const cinzel = Cinzel({
@@ -17,9 +18,12 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "LotusHacks 2026 — Live Schedule",
+  title: {
+    default: "LotusHacks 2026 — Live",
+    template: "%s — LotusHacks Live",
+  },
   description:
-    "Live schedule, countdown, and event timeline for LotusHacks x HackHarvard Vietnam 2026. March 20-22 at VNG Campus, Ho Chi Minh City.",
+    "Live schedule, resources, and perks for LotusHacks x HackHarvard Vietnam 2026. March 20-22 at VNG Campus, Ho Chi Minh City.",
   metadataBase: new URL("https://live.lotushack.org"),
   keywords: [
     "LotusHacks",
@@ -34,9 +38,9 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
   alternates: { canonical: "https://live.lotushack.org" },
   openGraph: {
-    title: "LotusHacks 2026 — Live Schedule",
+    title: "LotusHacks 2026 — Live",
     description:
-      "Live schedule, countdown, and event timeline for LotusHacks x HackHarvard Vietnam 2026.",
+      "Live schedule, resources, and perks for LotusHacks x HackHarvard Vietnam 2026.",
     url: "https://live.lotushack.org",
     siteName: "LotusHacks Live",
     locale: "en_US",
@@ -52,9 +56,11 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "LotusHacks 2026 — Live Schedule",
-    description: "Live schedule and countdown for LotusHacks 2026.",
-    images: ["https://lotushack.org/assets/img/branding/lotushacks-color-logo.png"],
+    title: "LotusHacks 2026 — Live",
+    description: "Live schedule, resources, and perks for LotusHacks 2026.",
+    images: [
+      "https://lotushack.org/assets/img/branding/lotushacks-color-logo.png",
+    ],
   },
   icons: {
     icon: [{ url: "/favicon.ico", sizes: "any" }],
@@ -73,7 +79,28 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body className={`${cinzel.variable} ${dmSans.variable} antialiased`}>
-        {children}
+        {/* Fixed background — shared across all pages */}
+        <div
+          className="pointer-events-none fixed inset-0 z-0 bg-cover bg-[center_75%]"
+          style={{ backgroundImage: "url('/assets/img/hero/bg.avif')" }}
+          aria-hidden="true"
+        >
+          <div className="absolute inset-0 bg-forest-950/80" />
+          <div className="absolute inset-0 bg-gradient-to-b from-gold-400/[0.04] via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-jade-600/[0.05] via-transparent to-transparent" />
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "radial-gradient(ellipse 60% 40% at 50% 20%, oklch(0.78 0.16 75 / 0.05), transparent 70%)",
+            }}
+          />
+        </div>
+
+        <div className="relative z-10 min-h-screen">
+          <Navbar />
+          {children}
+        </div>
       </body>
     </html>
   );

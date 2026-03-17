@@ -1,8 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
-import Link from "next/link";
 import { motion, AnimatePresence } from "motion/react";
 import { useCountdown } from "@/hooks/useCountdown";
 import {
@@ -123,93 +121,30 @@ export default function SchedulePage() {
 
   return (
     <>
-      {/* Fixed background — same as main site */}
-      <div
-        className="pointer-events-none fixed inset-0 z-0 bg-cover bg-[center_75%]"
-        style={{ backgroundImage: "url('/assets/img/hero/bg.avif')" }}
-        aria-hidden="true"
-      >
-        <div className="absolute inset-0 bg-forest-950/80" />
-        <div className="absolute inset-0 bg-gradient-to-b from-gold-400/[0.04] via-transparent to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-jade-600/[0.05] via-transparent to-transparent" />
-        {/* Central radial golden haze */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(ellipse 60% 40% at 50% 20%, oklch(0.78 0.16 75 / 0.05), transparent 70%)",
-          }}
-        />
-      </div>
-
-      <div className="relative z-10 min-h-screen">
-        {/* ── Floating lotus decorations ── */}
-        <LotusDecoration
-          size="lg"
-          variant="gold"
-          className="pointer-events-none fixed right-[6%] top-[15%] z-0 opacity-[0.07] animate-lotus-drift-glow drop-shadow-[0_0_10px_oklch(0.78_0.16_75/0.4)] motion-reduce:animate-none"
-        />
-        <LotusDecoration
-          size="md"
-          variant="gold"
-          className="pointer-events-none fixed left-[4%] top-[40%] z-0 opacity-[0.05] animate-lotus-float-glow drop-shadow-[0_0_8px_oklch(0.78_0.16_75/0.3)] motion-reduce:animate-none"
-          style={{ animationDelay: "2.5s" }}
-        />
-        <LotusDecoration
-          size="lg"
-          variant="gold"
-          className="pointer-events-none fixed left-[8%] bottom-[20%] z-0 opacity-[0.06] animate-lotus-drift-glow drop-shadow-[0_0_10px_oklch(0.78_0.16_75/0.4)] motion-reduce:animate-none"
-          style={{ animationDelay: "4s" }}
-        />
-        <LotusDecoration
-          size="md"
-          variant="gold"
-          className="pointer-events-none fixed right-[5%] bottom-[35%] z-0 opacity-[0.04] animate-lotus-float-glow drop-shadow-[0_0_8px_oklch(0.78_0.16_75/0.3)] motion-reduce:animate-none"
-          style={{ animationDelay: "1s" }}
-        />
-
-        {/* ── Minimal header ── */}
-        <motion.header
-          initial={{ opacity: 0, y: -12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className="relative z-10 flex items-center justify-between px-4 py-4 sm:px-8"
-        >
-          <Link
-            href="https://lotushack.org"
-            className="flex items-center gap-3 transition-opacity duration-200 hover:opacity-80"
-          >
-            <Image
-              src="/assets/img/hero/logo.png"
-              alt="LotusHacks logo"
-              width={40}
-              height={40}
-              className="h-10 w-10"
-            />
-            <span className="font-[family-name:var(--font-heading)] text-lg font-semibold tracking-wide text-cream-50 hidden sm:inline">
-              LotusHack
-            </span>
-          </Link>
-          <Link
-            href="https://lotushack.org"
-            className="inline-flex items-center gap-2 rounded-lg border border-gold-400/20 px-4 py-2.5 font-[family-name:var(--font-heading)] text-sm font-medium tracking-wide text-cream-100/60 transition-all duration-200 hover:border-gold-400/50 hover:text-gold-400 hover:shadow-[0_0_12px_oklch(0.78_0.16_75/0.1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-400 focus-visible:ring-offset-2 focus-visible:ring-offset-forest-950"
-          >
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden="true"
-            >
-              <path d="M19 12H5M12 19l-7-7 7-7" />
-            </svg>
-            Back Home
-          </Link>
-        </motion.header>
+      {/* ── Floating lotus decorations ── */}
+      <LotusDecoration
+        size="lg"
+        variant="gold"
+        className="pointer-events-none fixed right-[6%] top-[15%] z-0 opacity-[0.07] animate-lotus-drift-glow drop-shadow-[0_0_10px_oklch(0.78_0.16_75/0.4)] motion-reduce:animate-none"
+      />
+      <LotusDecoration
+        size="md"
+        variant="gold"
+        className="pointer-events-none fixed left-[4%] top-[40%] z-0 opacity-[0.05] animate-lotus-float-glow drop-shadow-[0_0_8px_oklch(0.78_0.16_75/0.3)] motion-reduce:animate-none"
+        style={{ animationDelay: "2.5s" }}
+      />
+      <LotusDecoration
+        size="lg"
+        variant="gold"
+        className="pointer-events-none fixed left-[8%] bottom-[20%] z-0 opacity-[0.06] animate-lotus-drift-glow drop-shadow-[0_0_10px_oklch(0.78_0.16_75/0.4)] motion-reduce:animate-none"
+        style={{ animationDelay: "4s" }}
+      />
+      <LotusDecoration
+        size="md"
+        variant="gold"
+        className="pointer-events-none fixed right-[5%] bottom-[35%] z-0 opacity-[0.04] animate-lotus-float-glow drop-shadow-[0_0_8px_oklch(0.78_0.16_75/0.3)] motion-reduce:animate-none"
+        style={{ animationDelay: "1s" }}
+      />
 
         {/* ── Hero strip ── */}
         <motion.div
@@ -606,29 +541,8 @@ export default function SchedulePage() {
               </svg>
               Join Discord
             </a>
-            <Link
-              href="https://lotushack.org"
-              className="inline-flex min-h-[2.625rem] items-center justify-center gap-2 rounded-lg border border-gold-400/20 px-6 py-3.5 font-[family-name:var(--font-heading)] text-sm font-medium tracking-wide text-cream-100/60 transition-all duration-200 hover:border-gold-400/50 hover:text-gold-400 hover:shadow-[0_0_12px_oklch(0.78_0.16_75/0.1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-400 focus-visible:ring-offset-2 focus-visible:ring-offset-forest-950"
-            >
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-              >
-                <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
-                <polyline points="9 22 9 12 15 12 15 22" />
-              </svg>
-              Home
-            </Link>
           </div>
         </motion.div>
-      </div>
     </>
   );
 }
