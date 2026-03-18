@@ -11,6 +11,7 @@ type NavItem = {
   label: string;
   href: string;
   external?: boolean;
+  locked?: boolean;
 };
 
 const NAV_ITEMS: NavItem[] = [
@@ -19,7 +20,7 @@ const NAV_ITEMS: NavItem[] = [
   { label: "Resources", href: "/resources" },
   { label: "Guide", href: "/guide" },
   { label: "Devpost", href: "https://lotushack.org", external: true },
-  { label: "Perks", href: "/perks" },
+  { label: "Perks", href: "/perks", locked: true },
 ];
 
 export function Navbar() {
@@ -34,21 +35,32 @@ export function Navbar() {
       className="relative z-50 px-4 py-4 sm:px-8"
     >
       <div className="mx-auto flex max-w-5xl items-center justify-between">
-        {/* Logo */}
+        {/* Logos */}
         <Link
           href="/"
-          className="flex items-center gap-3 transition-opacity duration-200 hover:opacity-80"
+          className="flex items-center gap-2.5 transition-opacity duration-200 hover:opacity-80 sm:gap-3"
         >
           <Image
             src="/assets/img/hero/logo.png"
             alt="LotusHacks logo"
             width={40}
             height={40}
-            className="h-10 w-10"
+            className="h-9 w-9 sm:h-10 sm:w-10"
           />
-          <span className="hidden font-[family-name:var(--font-heading)] text-lg font-semibold tracking-wide text-cream-50 sm:inline">
-            LotusHack
-          </span>
+          <Image
+            src="/assets/svg/branding/hackharvard-logo.svg"
+            alt="HackHarvard logo"
+            width={100}
+            height={40}
+            className="h-7 w-auto opacity-70 sm:h-8"
+          />
+          <Image
+            src="/assets/svg/branding/genai-logo.svg"
+            alt="GenAI Fund logo"
+            width={100}
+            height={40}
+            className="h-7 w-auto opacity-70 sm:h-8"
+          />
         </Link>
 
         {/* Desktop nav */}
@@ -62,9 +74,11 @@ export function Navbar() {
 
             const linkClass = cn(
               "relative rounded-lg px-4 py-2.5 font-[family-name:var(--font-heading)] text-sm font-medium tracking-wide transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-400 focus-visible:ring-offset-2 focus-visible:ring-offset-forest-950",
-              isActive
-                ? "text-gold-400"
-                : "text-cream-100/50 hover:text-cream-100/80",
+              item.locked
+                ? "pointer-events-none text-cream-100/20 blur-[2px]"
+                : isActive
+                  ? "text-gold-400"
+                  : "text-cream-100/50 hover:text-cream-100/80",
             );
 
             if (item.external) {
@@ -158,9 +172,11 @@ export function Navbar() {
 
                 const cls = cn(
                   "flex items-center justify-between rounded-lg px-4 py-3 font-[family-name:var(--font-heading)] text-sm font-medium tracking-wide transition-all duration-200",
-                  isActive
-                    ? "bg-gold-400/10 text-gold-400"
-                    : "text-cream-100/50 hover:bg-cream-50/[0.03] hover:text-cream-100/80",
+                  item.locked
+                    ? "pointer-events-none text-cream-100/20 blur-[2px]"
+                    : isActive
+                      ? "bg-gold-400/10 text-gold-400"
+                      : "text-cream-100/50 hover:bg-cream-50/[0.03] hover:text-cream-100/80",
                 );
 
                 if (item.external) {
